@@ -1,0 +1,25 @@
+version: '3.5'
+
+services:
+  postgres:
+    container_name: food_stories_postgres_container
+    image: postgres
+    environment:
+      POSTGRES_USER: food_user
+      POSTGRES_PASSWORD: food_password
+      POSTGRES_DB: food_db_1
+      PGDATA: /data/postgres
+    volumes:
+       - postgres:/data/postgres
+    ports:
+      - "5460:5432"
+    networks:
+      - postgres
+    restart: unless-stopped
+
+networks:
+  postgres:
+    driver: bridge
+
+volumes:
+    postgres:
