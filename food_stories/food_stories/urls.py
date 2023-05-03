@@ -16,6 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from stories.views import index
+# from django.contrib.admin.templates import admin as admin_template
+
+admin.site.site_header = 'Akifin blogu'
+admin.site.site_title = "Akifin title-i"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
